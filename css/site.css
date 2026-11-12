@@ -22,7 +22,7 @@ body {
     height: 34rem;
     top: -8rem;
     right: -6rem;
-    background: radial-gradient(circle, rgba(0, 86, 157, 0.16) 0%, rgba(0, 86, 157, 0) 68%);
+    background: radial-gradient(circle, rgba(0, 93, 164, 0.14) 0%, rgba(0, 93, 164, 0) 68%);
     animation: drift 32s ease-in-out infinite;
 }
 
@@ -31,7 +31,7 @@ body {
     height: 26rem;
     bottom: 8%;
     left: -8rem;
-    background: radial-gradient(circle, rgba(224, 242, 254, 0.95) 0%, rgba(224, 242, 254, 0) 70%);
+    background: radial-gradient(circle, rgba(180, 192, 204, 0.55) 0%, rgba(180, 192, 204, 0) 70%);
     animation: drift 38s ease-in-out infinite reverse;
 }
 
@@ -41,27 +41,63 @@ body {
 }
 
 /* Brand colours in plain CSS, same values as tailwind.config.js.
+   Blue #005DA4 is the logo blue. Grey surfaces sit beside it.
    These rules keep the colours if a utility is missing from the build. */
-.bg-primary { background-color: #0f172a !important; }
-.bg-brand { background-color: #00569d !important; }
-.bg-brandDark { background-color: #003f75 !important; }
-.bg-brandLight { background-color: #e0f2fe !important; }
-.text-brand { color: #00569d !important; }
-.text-brandDark { color: #003f75 !important; }
-.border-brand { border-color: #00569d !important; }
-.accent-brand { accent-color: #00569d; }
+.bg-primary { background-color: #16486F !important; }
+.bg-brand { background-color: #005DA4 !important; }
+.bg-brandDark { background-color: #004E90 !important; }
+.bg-brandLight { background-color: #DDE3EA !important; }
+.text-brand { color: #005DA4 !important; }
+.text-brandDark { color: #004E90 !important; }
+.border-brand { border-color: #005DA4 !important; }
+.accent-brand { accent-color: #005DA4; }
 
-.hover\:bg-brand:hover { background-color: #00569d !important; }
-.hover\:bg-brandDark:hover { background-color: #003f75 !important; }
-.hover\:text-brand:hover { color: #00569d !important; }
-.hover\:text-brandDark:hover { color: #003f75 !important; }
+.hover\:bg-brand:hover { background-color: #005DA4 !important; }
+.hover\:bg-brandDark:hover { background-color: #004E90 !important; }
+.hover\:text-brand:hover { color: #005DA4 !important; }
+.hover\:text-brandDark:hover { color: #004E90 !important; }
 .hover\:text-white:hover { color: #ffffff !important; }
-.hover\:border-brand:hover { border-color: #00569d !important; }
+.hover\:border-brand:hover { border-color: #005DA4 !important; }
 
 a[aria-current="page"] {
-    background-color: #00569d !important;
-    border-color: #00569d !important;
+    background-color: #005DA4 !important;
+    border-color: #005DA4 !important;
     color: #ffffff !important;
+}
+
+/* Cool grey page. Footer is a darker blue-grey, separate from the blue hero. */
+body.bg-gray-50 {
+    background-color: #EEF1F4 !important;
+}
+
+footer {
+    background-color: #243140 !important;
+    color: #E6EBF1 !important;
+}
+
+::selection {
+    background-color: #16486F;
+    color: #ffffff;
+}
+
+:focus-visible {
+    outline: 2px solid #005DA4;
+    outline-offset: 3px;
+}
+
+a[aria-current="page"]:focus-visible,
+.bg-brand:focus-visible {
+    outline-color: #E6EBF1;
+}
+
+input,
+textarea,
+select {
+    caret-color: #005DA4;
+}
+
+html {
+    scrollbar-color: #8AA0B3 #EEF1F4;
 }
 
 .bg-primary,
@@ -97,20 +133,44 @@ a[aria-current="page"] {
 
 .site-brand {
     display: inline-flex;
-    flex-shrink: 0;
-    line-height: 0;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+    line-height: 1.15;
+    text-decoration: none;
+    color: #16344C;
+}
+
+.brand-name {
+    min-width: 0;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    color: #16344C;
 }
 
 .brand-mark {
     display: block;
+    flex-shrink: 0;
     height: 2.5rem;
     width: auto;
     object-fit: contain;
 }
 
+@media (min-width: 480px) {
+    .brand-name {
+        font-size: 0.95rem;
+    }
+}
+
 @media (min-width: 640px) {
     .brand-mark {
         height: 3rem;
+    }
+
+    .brand-name {
+        font-size: 1.0625rem;
     }
 }
 
@@ -169,7 +229,7 @@ a[aria-current="page"] {
     }
 }
 
-/* Pale contact panel. Colour is brandLight #e0f2fe, with the existing brand border. */
+/* Pale contact panel. Colour is brandLight #DDE3EA, with the existing brand border. */
 .contact-panel {
     max-width: 40rem;
     margin-left: auto;
